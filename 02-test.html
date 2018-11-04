@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件之间传值</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+     <template id="test">
+        <h1>{{ id }}</h1>
+    </template>
+    <div id="app">
+        <test :id="id"></test>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            id: 100
+        },
+        components: {
+            'test': {
+                template: '#test',
+                props: ['id']
+            }
+        }
+    })
+
+</script>
+</html>

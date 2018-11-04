@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-ref获取dom元素</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="getdom">获取dom对象</button>
+        <div ref="mydiv" id="div1">
+            hello v-ref
+        </div>
+        <button @click="getcom">获取子组件的dom</button>
+        <test ref="mycom"></test>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            getdom: function(){
+                console.log(document.getElementById('div1').innerHTML),
+                console.log(this.$refs.mydiv.innerHTML)
+            },
+            getcom: function() {
+                console.log(this.$refs.mycom.subname)
+            }
+        },
+        //定义一个私有组件
+        components: {
+            'test': {
+                data: function() {
+                    return {
+                        subname: '子组件（test）名称'
+                    }
+                },
+                template:"<h1>这是一个子组件</h1>"
+            }
+        }
+
+    })
+</script>
+</html>
