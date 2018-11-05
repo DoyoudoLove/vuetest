@@ -1,0 +1,32 @@
+{
+  "name": "vuetest",
+  "version": "1.0.0",
+  "description": "使用npm init",
+  "main": "vue-router.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --port 5008"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoyoudoLove/vuetest.git"
+  },
+  "author": "L_UO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DoyoudoLove/vuetest/issues"
+  },
+  "homepage": "https://github.com/DoyoudoLove/vuetest#readme",
+  "devDependencies": {
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {}
+}
