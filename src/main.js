@@ -5,16 +5,23 @@ var bt = document.querySelector('#bt');
 var res = document.querySelector('#res');
 
 //2、导入site.css
-require('../static/css/site.css');
-//3、导入site1.scss
-require('../static/css/site1.scss');
-//3、导入site2.less
-require('../static/css/site2.less');
+// require('../static/css/site.css');
+// //3、导入site1.scss
+// require('../static/css/site1.scss');
+// //3、导入site2.less
+// require('../static/css/site2.less');
+import '../static/css/site.css';
+import '../static/css/site1.scss';
+import '../static/css/site2.less';
+
+import addObj from './calc.js';
+
 
 bt.onclick = function () {
     var v1value = parseFloat(v1.value);
     var v2value = parseFloat(v2.value);
 
-    var add = require('./calc.js');
-    res.value = add(v1value, v2value);
+    // var add = require('./calc.js');
+
+    res.value = addObj(v1value, v2value);
 };

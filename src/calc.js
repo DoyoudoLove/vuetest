@@ -1,4 +1,10 @@
 function add(x,y) {
     return x+y;
 }
-module.exports =add;
+export function substrict(x,y) {
+    alert(x - y);
+}
+// module.exports =add;
+export default { //es6导出写法
+    add
+}
