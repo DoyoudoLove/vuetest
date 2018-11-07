@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import App from './iview.vue';
+import App from './demo.vue';
 // import Routers from '../vue-router.js';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
