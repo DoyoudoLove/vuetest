@@ -106,13 +106,10 @@
                 value: 0,
                 list: [
                     {
-                        "img": "http://image.immertry.top/20181106gem.jpg"
+                        "img": "../../static/images/banner.jpg"
                     },
                     {
-                        "img": "http://image.immertry.top/20181105wolfgang.jpg"
-                    },
-                    {
-                        "img": "http://image.immertry.top/20181102taylor.jpg"
+                        "img": "../../static/images/banner2.jpg"
                     },
                 ]
             }
@@ -128,7 +125,6 @@
 
     .template {
         height: 60px;
-        /*padding: 20px;*/
     }
 
     .template i {
@@ -146,11 +142,14 @@
     }
 
     .demo-carousel {
-        height: 480px;
+        width: 100%;
+        height: 100%;
+        /*position: absolute;*/
     }
 
     .banner {
         width: 100%;
+        background-repeat: round;
     }
 
     .service {
