@@ -13,7 +13,7 @@
                     <MenuItem name="1">
                         首页
                     </MenuItem>
-                    <MenuItem name="2">
+                    <MenuItem name="2"  @on-select="routeTo('/login')">
                         新闻动态
                     </MenuItem>
                     <Submenu name="3">
@@ -112,6 +112,11 @@
                         "img": "../../static/images/banner2.jpg"
                     },
                 ]
+            }
+        },
+        methods: {
+            routeTo(e) {
+                this.$router.push(e);
             }
         }
     }

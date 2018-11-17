@@ -8,7 +8,7 @@ const path = require('path');
 
 module.exports = {
     mode: "development",
-    entry: './src/main2.js', //指定打包入口文件
+    entry: "./src/main2.js", //指定打包入口文件
     output: {
         path: path.resolve(__dirname, 'dist'), //指定位置路径
         filename: 'bundle.js'
