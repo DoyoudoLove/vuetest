@@ -17,7 +17,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,//test -> 正则表达式
-                loader:'style-loader!css-loader'
+                loader:"style-loader!css-loader"
             },
             {
                 test: /\.scss$/,
@@ -26,10 +26,6 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader:'style-loader!css-loader!less-loader'
-            },
-            {
-                test: /\.(png|jpg|jepg|gif)$/,
-                loader: 'url-loader?limit=10000'//图片大小临界值10K 小于则被打包
             },
             {
                 test: /\.vue$/,

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue 实现 tab选项卡</title>
+    <script src="vue.js"></script>
+    <style type="text/css">
+        span {
+            background: #ccc;
+            padding: 2px 5px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        span.active {
+            color: #fff;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <component :is="who"></component>
+    <span :class="{active:active[key]}" v-for="(item,key) in tab" @click="change(key)">
+        {{item.content}} :{{key}}
+    </span>
+</div>
+</body>
+<script type="text/javascript">
+    var tem1 = {
+        template: "<div>我是components_A组件</div>",
+    };
+    var tem2 = {
+        template: "<div>我是components_B组件</div>",
+    };
+    var tem3 = {
+        template: "<div>我是components_C组件</div>",
+    };
+    var vue1 = new Vue({
+        el: "#app",
+        data: {
+            who: "com1",　　　　　　　　　　//默认第一次显示;
+            active: [true, false, false],//统一管理状态;
+            tab: [{
+                "content": "tab1",　　　　//tab-span
+                "func": "com1"           //仅仅用来存放组件;
+            }, {
+                "content": "tab2",
+                "func": "com2"
+            }, {
+                "content": "tab3",
+                "func": "com3"
+            }]
+        },
+        updated: function () {
+            // this.who=null;
+        },
+
+        methods: {
+            change: function (x) {
+
+                for (var i = 0; i < this.active.length; i++) {
+                    this.active[i] = false;
+                    this.active[x] = true;
+                    this.who = this.tab[x].func;
+                }
+                console.log(this.active);
+                // console.log(x);
+                this.$set(this.active, 3, 0);
+            }
+        },
+        components: {
+            "com1": tem1,
+            "com2": tem2,
+            "com3": tem3
+        }
+    })</script>
+</html>
