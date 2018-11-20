@@ -54,61 +54,71 @@
             </Col>
         </Row>
         <!-- 内容1 -->
-        <Row>
-            <div>
-                <Row>
-                    <div id="content_top">
-                        <div id="ourService">
-                            <i>我们的服务</i>
-                        </div>
-                        <div id="descService">
-                            <span>一条龙建筑工程专业服务企业</span>
-                        </div>
+        <div>
+            <Row>
+                <Col :xs="24" :sm="24" :md="24" :lg="24">
+                <div id="content_top">
+                    <div id="ourService">
+                        <i>我们的服务</i>
                     </div>
-                </Row>
-            </div>
-
-            <Col span="8" v-for="(news,index) in services" :key="index">
-            <div id="content_bottom">
-                <div id="img">
-                    <img class="service" :src="news.imgUrl"/>
+                    <div id="descService">
+                        <span>一条龙建筑工程专业服务企业</span>
+                    </div>
                 </div>
-                <div id="title">{{ news.title }}</div>
-                <div id="content">{{ news.cotent }}</div>
-            </div>
-            </Col>
-        </Row>
-        <!-- 内容二 -->
-        <Row>
-            <Col :xs="24" :sm="24" :md="24" :lg="24">
-            <div id="content1">
-                <div id="content1_about">
-                    <!--<p v-text="content.content"></p>-->
-                    <div id="module1">关于我们</div>
-                    <div id="module2">致力于打造全国专业的建筑公司</div>
-                    <div id="module3">建筑有限公司座落于中国建筑城建筑工业园开发区。公司创建于1982年，通过多年诚实守信和认真严谨的经营，已高速发展成集设计、
-                        工程的大型建材企业，并通过2004环境管理体系世界标准认证。
+                </Col>
+                <Col :lg="8" :md="8" :sm="8" :xs="24" v-for="(news,index) in services" :key="index">
+                <div>
+                    <div id="content_bottom">
+                        <div id="img">
+                            <img class="service" :src="news.imgUrl"/>
+                        </div>
+                        <div id="title">{{ news.title }}</div>
+                        <div id="content">{{ news.cotent }}</div>
                     </div>
-                    <div id="module4">
-                        <a>
-                            <span>
+                </div>
+                </Col>
+                <!-- 内容二 -->
+                <Col :xs="24" :sm="24" :lg="24">
+                <div id="content1">
+                    <div id="content1_about">
+                        <!--<p v-text="content.content"></p>-->
+                        <div id="module1">关于我们</div>
+                        <div id="module2">致力于打造全国专业的建筑公司</div>
+                        <div id="module3" :xs="24" :sm="24">
+                            建筑有限公司座落于中国建筑城建筑工业园开发区。公司创建于1982年，通过多年诚实守信和认真严谨的经营，已高速发展成集设计、
+                            工程的大型建材企业，并通过2004环境管理体系世界标准认证。
+                        </div>
+                        <div id="module4">
+                            <a>
+                                <span>
                                 了解更多
-                            </span>
-                        </a>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </Col>
-        </Row>
+                </Col>
+            </Row>
+        </div>
         <!-- 页面底部 -->
         <Row>
-            <Col :xs="24" :sm="24" :md="24" :lg="24">
             <div id="footer">
-                <div>
-                    <p v-text="footer.content"></p>
+                <Col :xs="24" :sm="24" :md="24" :lg="24">
+                <div id="footer_example">
+                    <div id="footer_example1" v-for="(num,index) in num" :key="index">
+                        <div id="number">{{ num.number }}</div>
+                        <div id="footer_name">{{ num.footer_name }}</div>
+                    </div>
                 </div>
+                </Col>
+                <Col :xs="24" :sm="24" :md="24" :lg="24">
+                <div id="footer_about">
+                    <div id="footer_module1">服务理念</div>
+                    <div id="footer_module2">优质建筑的精品，创新求实的精神，热情服务的承诺，良好诚实的信誉。安全管理制度化，安全制度标准化，作业行为规范化。以人为本，不断创新。</div>
+                    <!--<p v-text="footer.content"></p>-->
+                </div>
+                </Col>
             </div>
-            </Col>
         </Row>
     </div>
 </template>
@@ -155,7 +165,25 @@
                     "imgUrl": "../../static/images/body.jpg",
                     "content": "服务理念\n" +
                         "优质建筑的精品，创新求实的精神，热情服务的承诺，良好诚实的信誉。安全管理制度化，安全制度标准化，作业行为规范化。以人为本，不断创新。"
-                }
+                },
+                num: [
+                    {
+                        "number": "1343",
+                        "footer_name": "服务客户"
+                    },
+                    {
+                        "number": "1343",
+                        "footer_name": "精彩案例"
+                    },
+                    {
+                        "number": "1343",
+                        "footer_name": "员工"
+                    },
+                    {
+                        "number": "1343",
+                        "footer_name": "好评"
+                    }
+                ]
             }
         },
         methods: {
@@ -212,6 +240,8 @@
         font-size: 0;
         position: relative;
         padding-top: 50px;
+        background-size: cover;
+        text-align: center;
     }
 
     .service {
@@ -260,23 +290,19 @@
     }
 
     #content1 {
-        width: 100%;
-        height: 580px;
         margin-top: 50px;
+        background-size: cover;
         background: url("../static/images/body.jpg") no-repeat center;
     }
 
     #content1_about {
-        position: relative;
         width: 100%;
-        height: 100%;
-        min-height: 100%;
-        max-height: 100%;
-        padding: 230px 0 0 140px;
+        height: 520px;
+        padding: 200px 0 0 80px;
     }
 
     #content1_about #module1 {
-        width: 100px;
+        width: 100%;
         height: 30px;
         line-height: 30px;
         font-size: 20px;
@@ -286,7 +312,7 @@
     }
 
     #content1_about #module2 {
-        width: 280px;
+        width: 100%;
         height: 18px;
         line-height: 18px;
         font-size: 12px;
@@ -297,7 +323,7 @@
     }
 
     #content1_about #module3 {
-        width: 600px;
+        width: 500px;
         height: 70px;
         line-height: 35px;
         font-size: 12px;
@@ -305,16 +331,13 @@
         text-align: left;
         font-weight: bold;
         padding-top: 35px;
-        position: relative;
     }
 
     #content1_about #module4 {
-        padding-top: 60px;
         width: 130px;
-        position: relative;
         font-size: 14px;
         height: 40px;
-        /*color: rgba(253,108,64,1);*/
+        padding-top: 100px;
     }
 
     #module4 a {
@@ -333,9 +356,61 @@
         text-align: center;
         color: rgba(253, 108, 64, 1);
     }
+
     #footer {
         width: 100%;
         height: 720px;
+        background-size: cover;
         background: url("../static/images/footer.jpg") no-repeat center;
+    }
+
+    #footer_example {
+        padding: 37px 0;
+        border: 1px solid red;
+        float: left;
+    }
+
+    #footer_example1 {
+        width: 120px;
+        height: 60px;
+        border: 1px solid green;
+    }
+
+    #number {
+        font-size: 25px;
+        color: #333;
+        text-align: center;
+    }
+
+    #footer_name {
+        font-size: 13px;
+        color: #333;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        #content1 {
+            width: 100%;
+            background: url("../static/images/body.jpg") no-repeat center;
+        }
+
+        #content1_about {
+            width: 100%;
+            height: 380px;
+            padding: 100px 0 0 20px;
+        }
+
+        #content1_about #module3 {
+            width: 100%;
+        }
+
+        #content1_about #module4 {
+            width: 100%;
+            padding: 100px 10px 0 10px;
+        }
+        #footer {
+            background-size: cover;
+            background: url("../static/images/footer.jpg") no-repeat center;
+        }
     }
 </style>
