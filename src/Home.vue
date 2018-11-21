@@ -2,16 +2,17 @@
     <div>
         <!-- 导航 -->
         <Row>
-            <Col :xs="24" :sm="10" :md="12" :lg="12">
+            <Col :xs="24" :sm="8" :md="12" :lg="12">
             <div class="template">
                 <i>
                     温州盛锦建筑劳务有限公司
                 </i>
-                <!--<span>Wenzhou Sheng Jin Construction Service Ltd</span>-->
+                <span>Wenzhou Sheng Jin Construction Service Ltd</span>
             </div>
             </Col>
-            <Col :xs="{span:0}" :sm="14" :md="12" :lg="12">
+            <Col :xs="{span:0}" :sm="16" :md="12" :lg="12">
             <Menu mode="horizontal" :theme="theme1" active-name="1">
+                <!--<Col :md="24">-->
                 <MenuItem name="1">
                     首页
                 </MenuItem>
@@ -38,6 +39,7 @@
                 <MenuItem name="5">
                     联系我们
                 </MenuItem>
+                <!--</Col>-->
             </Menu>
             </Col>
         </Row>
@@ -84,7 +86,7 @@
                         <!--<p v-text="content.content"></p>-->
                         <div id="module1">关于我们</div>
                         <div id="module2">致力于打造全国专业的建筑公司</div>
-                        <div id="module3" :xs="24" :sm="24">
+                        <div id="module3">
                             建筑有限公司座落于中国建筑城建筑工业园开发区。公司创建于1982年，通过多年诚实守信和认真严谨的经营，已高速发展成集设计、
                             工程的大型建材企业，并通过2004环境管理体系世界标准认证。
                         </div>
@@ -102,22 +104,26 @@
         </div>
         <!-- 页面底部 -->
         <Row>
+            <Col :xs="{ span: 11, offset: 1 }" :lg="{span:5,offset:1}" v-for="(num,index) in num" :key="index">
             <div id="footer">
-                <Col :xs="24" :sm="24" :md="24" :lg="24">
                 <div id="footer_example">
-                    <div id="footer_example1" v-for="(num,index) in num" :key="index">
+                    <div id="footer_example1">
                         <div id="number">{{ num.number }}</div>
                         <div id="footer_name">{{ num.footer_name }}</div>
                     </div>
                 </div>
-                </Col>
-                <Col :xs="24" :sm="24" :md="24" :lg="24">
-                <div id="footer_about">
+            </div>
+            </Col>
+        </Row>
+        <Row>
+            <div id="footer_about">
+                <div id="footer_buju">
+                    <Col :lg="{ span: 12, offset: 12 }" :sm="{span:12,offset:12}" :md="{span:12,offset:12}">
                     <div id="footer_module1">服务理念</div>
-                    <div id="footer_module2">优质建筑的精品，创新求实的精神，热情服务的承诺，良好诚实的信誉。安全管理制度化，安全制度标准化，作业行为规范化。以人为本，不断创新。</div>
+                    <div id="footer_module2">优质建筑的精品，创新求实的精神，热情服务的承诺，良好诚实的信誉。安全管理制度化，安全制度标准化作业行为规范化。以人为本，不断创新。</div>
                     <!--<p v-text="footer.content"></p>-->
+                    </Col>
                 </div>
-                </Col>
             </div>
         </Row>
     </div>
@@ -207,21 +213,35 @@
     }
 
     .template {
+        width: 100%;
         height: 60px;
+        line-height: 60px;
+        font-size: 1rem;
+        /*border: 1px solid red;*/
     }
 
     .template i {
+        width: 100%;
+        display: inline-block;
         font-style: normal;
-        font-size: 28px;
-        height: 60px;
-        line-height: 60px;
-        padding-left: 50px;
+        text-align: center;
+        height: 30px;
         float: left;
+        line-height: 40px;
+        letter-spacing: 10px;
+        /*border: 1px solid green;*/
+
+
     }
 
     .template span {
-        font-size: 20px;
+        width: 100%;
+        height: 30px;
+        line-height: 20px;
+        text-align: center;
+        display: inline-block;
         float: left;
+        /*border: 1px solid blue;*/
     }
 
     .demo-carousel {
@@ -293,6 +313,8 @@
         margin-top: 50px;
         background-size: cover;
         background: url("../static/images/body.jpg") no-repeat center;
+        /*padding-bottom: 40px;*/
+        margin-bottom: 40px;
     }
 
     #content1_about {
@@ -359,21 +381,22 @@
 
     #footer {
         width: 100%;
-        height: 720px;
-        background-size: cover;
-        background: url("../static/images/footer.jpg") no-repeat center;
+        height: 120px;
+        background: #fff;
     }
 
     #footer_example {
-        padding: 37px 0;
-        border: 1px solid red;
+        width: 100%;
+        padding: 30px 0;
+        /*border: 1px solid red;*/
         float: left;
     }
 
     #footer_example1 {
-        width: 120px;
+        width: 100%;
         height: 60px;
-        border: 1px solid green;
+        line-height: 30px;
+        /*border: 1px solid green;*/
     }
 
     #number {
@@ -388,7 +411,47 @@
         text-align: center;
     }
 
-    @media screen and (max-width: 768px) {
+    #footer_about {
+        width: 100%;
+        height: 100%;
+        background: url("../static/images/footer.jpg") top center  / 100% no-repeat;
+    }
+
+    #footer_buju {
+        width: 100%;
+        height: 350px;
+        /*border: 1px solid blue;*/
+    }
+
+    #footer_buju #footer_module1 {
+        width: 100%;
+        line-height: 30px;
+        color: rgba(255, 253, 253, 1);
+        text-align: left;
+        font-size: 20px;
+        font-weight: bold;
+        /*border: 1px solid red;*/
+        padding-top: 120px;
+        padding-bottom: 10px;
+        position: relative;
+    }
+
+    #footer_buju #footer_module2 {
+        width: 100%;
+        height: 80px;
+        line-height: 25px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 1);
+        text-align: left;
+        font-weight: bold;
+        /*border: 1px solid green;*/
+    }
+
+    @media screen and (max-width: 678px) {
+        .template {
+            width: 100%;
+        }
+
         #content1 {
             width: 100%;
             background: url("../static/images/body.jpg") no-repeat center;
@@ -397,7 +460,7 @@
         #content1_about {
             width: 100%;
             height: 380px;
-            padding: 100px 0 0 20px;
+            padding: 100px 10px 0 10px;
         }
 
         #content1_about #module3 {
@@ -408,9 +471,33 @@
             width: 100%;
             padding: 100px 10px 0 10px;
         }
-        #footer {
-            background-size: cover;
-            background: url("../static/images/footer.jpg") no-repeat center;
+
+        #footer_about {
+            width: 100%;
+            height: 100%;
+            background: url("../static/images/footer.jpg") bottom center / 150% no-repeat;
+        }
+
+        #footer_buju {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        #footer_buju #footer_module1 {
+            width: 100%;
+            height: 100px;
+            padding-top: 70px;
+            padding-left: 40px;
+        }
+
+        #footer_buju #footer_module2 {
+            width: 100%;
+            height: 120px;
+            line-height: 25px;
+            margin: 0;
+            padding-left: 40px;
+            padding-right: 10px;
         }
     }
 </style>
