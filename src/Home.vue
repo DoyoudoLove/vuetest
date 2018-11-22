@@ -437,7 +437,7 @@
     }
 
     #footer_buju #footer_module2 {
-        width: 100%;
+        width: 80%;
         height: 80px;
         line-height: 25px;
         font-size: 12px;
